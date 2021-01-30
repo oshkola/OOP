@@ -82,5 +82,4 @@ int main()
 	foo(a2); //A(const A& origin) called
 	foo2(); //A() called. Copy constructor isn't called for some reason
 	        //probably due to the Return Value Optimisation.
-
 }
