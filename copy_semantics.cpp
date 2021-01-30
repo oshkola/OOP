@@ -3,7 +3,6 @@
 using std::cout;
 using std::endl;
 
-
 class A
 {
 	size_t _size;
