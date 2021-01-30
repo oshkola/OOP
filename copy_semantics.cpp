@@ -75,10 +75,10 @@ A foo2()
 
 int main()
 {
-	//A a; //A() called
-	//A a1(a); //A(const A& origin) called
+	A a; //A() called
+	A a1(a); //A(const A& origin) called
 	A a2; //A() called
-	//a2 = a1; //operator=(const A& origin) called
+	a2 = a1; //operator=(const A& origin) called
 	foo(a2); // A(const A& origin) called
 	foo2(); // A() called. Copy constructir isn't called for some reason
 			// probably due to the Return Value Optimisation.
