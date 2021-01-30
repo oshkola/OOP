@@ -18,10 +18,6 @@ public:
 		{
 			_data[i] = rand() % 10;
 		}
-					for (int i = 0; i < _size; i++)
-		{
-			cout << this->_data[i]<< endl;
-		}
 	}
 
 	A(const A& origin)
