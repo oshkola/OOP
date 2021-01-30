@@ -36,8 +36,11 @@ public:
 	{
 		cout << "operator=(const A& origin) called on "
 		     << this << endl;
-		if (this != &origin)
+		if (this != &origin) //check self-assignment
 		{
+			//the trick is to copy _data from origin
+			//to the tmp object, and only after that
+			//delete this->_data
 			int* tmp_data = new int[origin._size];
 			for (int i = 0; i < origin._size; i++)
 			{
@@ -57,10 +60,27 @@ public:
 	}
 };
 
+void foo(A a)
+{
+	cout << "foo()" << endl;
+}
+
+A foo2()
+{
+	cout << "foo2()" << endl;
+	A tmp;
+	return tmp;
+}
+
+
 int main()
 {
-	A a; //A() called
-	A a1(a); //A(const A& origin) called
+	//A a; //A() called
+	//A a1(a); //A(const A& origin) called
 	A a2; //A() called
-	a2 = a1; //operator=(const A& origin) called
+	//a2 = a1; //operator=(const A& origin) called
+	foo(a2); // A(const A& origin) called
+	foo2(); // A() called. Copy constructir isn't called for some reason
+			// probably due to the Return Value Optimisation.
+
 }
