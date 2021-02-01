@@ -80,7 +80,7 @@ int main()
 	A a2; //A() called
 	a2 = a1; //operator=(const A& origin) called
 	foo(a2); // A(const A& origin) called
-	foo2(); // A() called. Copy constructir isn't called for some reason
-			// probably due to the Return Value Optimisation.
-
+	foo2();  // A() called ony. Copy constructir isn't called 
+	         //due to the Return Value Optimisation.
+			 //Use -fno-elide-constructors to stop the optimization
 }
