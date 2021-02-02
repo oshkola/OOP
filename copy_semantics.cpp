@@ -82,5 +82,5 @@ int main()
 	foo(a2); // A(const A& origin) called
 	foo2();  // A() called ony. Copy constructir isn't called 
 	         //due to the Return Value Optimisation.
-			 //Use -fno-elide-constructors to stop the optimization
+	         //Use -fno-elide-constructors to stop the optimization
 }
