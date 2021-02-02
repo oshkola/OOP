@@ -48,7 +48,7 @@ public:
 				tmp_data[i] = origin._data[i];
 			}
 
-			delete this->_data;
+			delete[] this->_data;
 			this->_size = origin._size;
 			this->_data = tmp_data;
 		}
