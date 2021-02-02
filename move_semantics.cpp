@@ -1,3 +1,7 @@
+/**************************************
+ *NOTE: use -fno-elide-constructors flag
+***************************************/
+
 #include <iostream>
 
 using std::cout;
@@ -56,7 +60,7 @@ public:
 		cout << "A(A&&) called on " << this << endl;
 		this->_size = origin._size;
 		this->_data = origin._data;
-		
+
 		//have to leave origin in a consistent state
 		origin._data = nullptr; 
 		origin._size = 0;
