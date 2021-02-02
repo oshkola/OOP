@@ -51,12 +51,14 @@ public:
 		return *this;
 	}
 
-	A(A&& origin)
+	A(A&& origin) //non-const as we change the origin
 	{
 		cout << "A(A&&) called on " << this << endl;
 		this->_size = origin._size;
 		this->_data = origin._data;
-		origin._data = nullptr;
+		
+		//have to leave origin in a consistent state
+		origin._data = nullptr; 
 		origin._size = 0;
 	}
 
@@ -82,8 +84,14 @@ public:
 	}
 };
 
+void foo(A a)
+{
+	cout << "foo()" << endl;
+}
+
 A bar()
 {
+	cout << "bar()" << endl;
 	A tmp;
 	return tmp;
 }
@@ -91,7 +99,9 @@ A bar()
 
 int main()
 {
+	A a; //A()
+	foo(a); //A(const A&), because a is l-value
+	foo(std::move(a)); //A(A&&)
+	bar(); //A(), then A(A&&)
 
-	A a;
-	bar();
-}
+ }
